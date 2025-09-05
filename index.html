@@ -3,23 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>AR Camera Test</title>
+    <style src="styles.css"></style>
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <!--<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>-->
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"> </script>
     <script src="script.js"></script>
 </head>
 <body>
-    <a-scene embedded arjs="sourceType: webcam; sourceWidth: 1280; sourceHeight: 720; facingMode: environment;">
+    <a-scene embedded webxr="optionalFeatures: dom-overlay; overlayElement: #overlay" arjs>
         <a-marker preset="hiro">
-            <!-- <a-box position="0 2 0" rotation="0 0 0" color="#4CC3D9"></a-box>
+            <!-- BASIC AR SETUP WITH 3 BOXES <a-box position="0 2 0" rotation="0 0 0" color="#4CC3D9"></a-box>
             <a-box position="5 2 5" rotation="1 1 1"color="#EF2D5E"></a-box>
             <a-box position="12 2 12" rotation="2 2 2"color="#FFC65D"></a-box>
             <a-plane position="0 0 0" rotation="90 0 0" width="1" height="1" color="#7BC8A4"></a-plane>-->
-            <a-box class="clickable" color = "#000000" position="0 0 0" animation="property: rotation; to: 360 360 360; easing:linear; loop: true" change-color></a-box>
+
+            <!-- ROTATING CUBE WITH RANDOM COLOR CHANGING<a-box class="clickable" color = "#000000" position="0 0 0" animation="property: rotation; to: 360 360 360; easing:linear; loop: true" change-color></a-box>-->
+             <a-box position="0 0 0" color="#4971f5" color-n-scale></a-box>
         </a-marker>
-        <a-entity camera>
+        <a-marker preset="custom" src="pattern-UI_QuantumMoon_d.patt">
+            <a-dodecahedron class="clickable" color = "#FF0000" position="0 0 0" animation="property: rotation; to: 360 360 360; easing:linear; loop: true" change-color></a-dodecahedron>
+        </a-marker>
+            <a-entity camera>
             <a-cursor fuse="false" raycaster="objects: .clickable"></a-cursor>                
         </a-entity>
     </a-scene>
+    <div id="menu-button">
+    ☰
+        <div class="dropdown">
+
+            <div class="color-palette">
+                <div class="color-btn" style="width: 30px; height: 30px; background: red; border-radius: 50%;"></div>
+                <div class="color-btn" style="width: 30px; height: 30px; background: green; border-radius: 50%;"></div>
+                <div class="color-btn" style="width: 30px; height: 30px; background: blue; border-radius: 50%;"></div>
+            </div>
+            
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider">
+            </div>
+        </div>
+    </div>
+
+    
+
 </body>
 </html>

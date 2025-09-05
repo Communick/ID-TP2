@@ -1,4 +1,5 @@
-AFRAME.registerComponent('change-color', {
+// Function that randomly changes the color of objects which contains its name as attributes
+/*AFRAME.registerComponent('change-color', {
   init: function(){
     const el = this.el;
     el.addEventListener('click', function(){
@@ -8,8 +9,37 @@ AFRAME.registerComponent('change-color', {
       setTimeout(() => {
         el.setAttribute('scale', {x:1, y:1, z:1});
       el.setAttribute('animation', '"property: rotation; to: 360 360 360; easing:linear; loop: true; dur=2000');
-        }, 2000);
-      
+        }, 500);
     })
   }                
+});*/
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById('menu-button');
+  const menu = document.getElementsByClassName('dropdown')[0];
+
+  if (button && menu) {
+    button.addEventListener('click', function() {
+      menu.style.display = menu.style.display === 'none' ? 'flex' : 'none';
+    });
+  }
+});
+
+AFRAME.registerComponent('color-n-scale', {
+  init: function(){
+    const el = this.el;
+    var slider = document.querySelector(".slider");
+    slider.oninput = function() {
+      el.setAttribute('scale', {x:slider.value/33.3333, y:slider.value/33.3333, z:slider.value/33.3333});
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      var colorPalette = document.querySelectorAll(".color-btn");
+      colorPalette.forEach(function(button) {
+        button.addEventListener('click', function() {
+          el.setAttribute('color', button.getAttribute('background'));
+        });
+    })});
+  }
 });
