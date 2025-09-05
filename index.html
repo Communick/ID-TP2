@@ -10,17 +10,15 @@
 </head>
 <body>
     <a-scene embedded arjs="sourceType: webcam; sourceWidth: 1280; sourceHeight: 720; facingMode: environment;">
-        <a-marker-camera preset="hiro">
+        <a-marker preset="hiro">
             <!-- <a-box position="0 2 0" rotation="0 0 0" color="#4CC3D9"></a-box>
             <a-box position="5 2 5" rotation="1 1 1"color="#EF2D5E"></a-box>
             <a-box position="12 2 12" rotation="2 2 2"color="#FFC65D"></a-box>
             <a-plane position="0 0 0" rotation="90 0 0" width="1" height="1" color="#7BC8A4"></a-plane>-->
-            <a-box position="0 5 0" rotation="0 0 0" color="#4CC3D9" tag="box"></a-box>
-        </a-marker-camera>
-        <a-entity camera look-controls>
-            <cursor>
-                <a-ring color="red" radius-inner="0.02" radius-outer="0.03" position="0 0 -1"></a-ring>
-            </cursor>
+            <a-box class="clickable" color = "#000000" position="0 0 0" animation="property: rotation; to: 360 360 360; easing:linear; loop: true" change-color></a-box>
+        </a-marker>
+        <a-entity camera>
+            <a-cursor fuse="false" raycaster="objects: .clickable"></a-cursor>                
         </a-entity>
     </a-scene>
 </body>
