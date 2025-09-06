@@ -28,17 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })}});
 
-const overlay = document.getElementById('menu-button');
-
-// stop events from bubbling to the scene/canvas
-['touchstart','touchmove','touchend','click','pointerdown'].forEach(name=>{
-  overlay.addEventListener(name, e => {
-    e.stopPropagation();
-    // if you need to prevent scrolling/zoom gestures:
-    if (e.cancelable) e.preventDefault();
-  }, { passive: false });
-});
-
 AFRAME.registerComponent('color-n-scale', {
   init: function(){
     const el = this.el;
