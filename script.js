@@ -36,12 +36,11 @@ AFRAME.registerComponent('color-n-scale', {
       el.setAttribute('scale', {x:slider.value/33.3333, y:slider.value/33.3333, z:slider.value/33.3333});
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
       var colorPalette = document.querySelectorAll(".color-btn");
       colorPalette.forEach(function(button) {
         button.addEventListener('click', function() {
-          el.setAttribute('color', button.getAttribute('background'));
+          el.setAttribute('color', button.getAttribute('color'));
         });
-    })});
+    });
   }
 });
