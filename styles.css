@@ -53,12 +53,10 @@
 }
 
 .menu-button {
-  position: absolute;
+  position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 9999; /* stays above AR scene */
-  background: rgba(255,255,255,0.8);
-  padding: 10px;
+  z-index: 9999; /* stays above AR.js */
 }
 a-scene {
   position: fixed;
