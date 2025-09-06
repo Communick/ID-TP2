@@ -21,10 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (button && menu) {
     button.addEventListener('click', function() {
-      menu.style.display = menu.style.display === 'none' ? 'flex' : 'none';
-    });
+  if (menu.style.display === '' || menu.style.display === 'flex') {
+    menu.style.display = 'none';
+  } else {
+    menu.style.display = 'flex';
   }
-});
+})}});
 
 AFRAME.registerComponent('color-n-scale', {
   init: function(){
