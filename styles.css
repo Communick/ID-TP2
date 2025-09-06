@@ -53,12 +53,18 @@
 }
 
 .menu-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 20;
-    background: white;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 9999; /* stays above AR scene */
+  background: rgba(255,255,255,0.8);
+  padding: 10px;
+}
+a-scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* stays behind overlays */
 }
